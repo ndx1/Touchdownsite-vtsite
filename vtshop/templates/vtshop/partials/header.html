@@ -1,0 +1,90 @@
+<!-- header of all vtshop pages -->
+
+{% load static %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'vtshop:home' %}">
+        <img class="img-fluid" src="{% static 'vtshop/img/logo/logo_black_small.png' %}" alt="logo">
+    </a>
+    <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+    >
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'vtshop:contact' %}"
+                >Nous contacter</a
+                >
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'vtshop:about' %}">À propos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'vtshop:products-all' %}"
+                >Catalogue de produits</a
+                >
+        </li>
+        <!--  -->
+        <!--  -->
+        {% if user.is_authenticated %}
+            {% if user.role == "CUSTOMER" %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'vtshop:cart' %}">Mon panier</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'vtshop:my_space' %}">Mon espace</a>
+            </li>
+            {% else %}
+                {% if user.role == "EMPLOYEE" %}
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'vtshop:intranet' %}">Intranet</a>
+            </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'vtshop:employees' %}">Administration</a>
+                </li>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+        <!--  -->
+        <!--  -->
+        <li class="nav-item">
+            {% if user.is_authenticated %}
+                <a class="nav-link" href="{% url 'vtshop:logout' %}">Se déconnecter</a>
+            {% else %}
+                <a class="nav-link" href="{% url 'vtshop:login' %}">Se connecter</a>
+            {% endif %}
+        </li>
+        <!--  -->
+        <!--  -->
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link disabled">Bienvenue, {{ user.first_name }}</a>
+            </li>
+        {% endif %}
+
+        <!-- <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+        </li> 
+        </ul>
+        <form class="d-flex" role="search">
+        <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+        />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+    </div>
+    </div>
+</nav>

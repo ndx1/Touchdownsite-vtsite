@@ -1,0 +1,49 @@
+<!-- Our oredr detail view -->
+
+{% extends 'vtshop/base.html' %}
+
+{% block title %}Commande{% endblock title %}
+
+{% block content %}
+
+{% load myfilters %}
+
+<div class="container-sm mt-3 min-vh-100">
+
+    <h1 class="fs-2 my-3">Commande n° : {{ order.ref_number }}</h1>
+
+    <div class="my-3 fs-4 d-sm-flex justify-content-between align-items-center">
+        <div>Créée le : {{ order.date_created|date:"D d M Y" }}</div>
+        <div>Statut : {{ status }}</div>
+    </div>
+
+    {% if comment %}
+        <p class="text-end">Commentaires du vendeur : 
+            {{ comment.content }}
+        </p>
+    {% endif %}
+
+    <!-- line items. -->
+    <div class="list-group my-3">
+        {% for line_item in line_item_list %}
+            <div class="list-group-item">
+                <div class="row">
+                    <div class="col">{{ line_item.product }}</div> 
+                    <div class="col">Quantité : {{ line_item.quantity }}</div>
+                    <div class="col text-end">Prix : {{ line_item.price }} € HT</div>
+                </div>
+            </div>            
+        {% endfor %}
+    </div>
+
+    <!-- Total price. -->
+    <p class="fs-4 text-end">Prix total HT : {{ order.total_price }} €</p>
+    <!-- VAT prices : -->
+    <p class="fs-4 text-end">TVA : {{ order.vat_amount }} €</p>
+    <div class="fs-3 text-end">
+        Montant TTC : 
+        <span class="fw-bold">{{ order.incl_vat_price }} €</span>
+    </div>
+
+</div>
+{% endblock %}

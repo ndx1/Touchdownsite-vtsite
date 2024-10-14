@@ -1,0 +1,43 @@
+<!-- This is our conversation list view. -->
+
+{% extends 'vtshop/base.html' %}
+
+{% block title %}conversations{% endblock title %}
+
+{% block content %}
+
+{% load myfilters %}
+
+<div class="container-sm my-3 min-vh-100">
+
+    <h1 class="fs-2 my-3">Conversations</h1>
+
+    <div class="list-group my-3">
+        {% for c in conversation_list %}
+                <a 
+                    href="{% url 'vtshop:messages-last' c.conversation.pk 5 %}"
+                    class="list-group-item list-group-item-action link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                >
+                    <p class="fs-5">"{{ c.conversation.subject }}"</p>
+                    <p>avec 
+                    {% for participant in c.participants %}
+                        {% if participant != user %}
+                            {% if participant.role == 'CUSTOMER' %}
+                                votre client(e) 
+                            {% else %}
+                                votre collègue 
+                            {% endif %}
+                            <span class="fs-4 fw-bold">{{ participant.first_name }} {{ participant.last_name }}</span>
+                        {% endif %}
+                    {% endfor %}
+                    </p>
+                </a>
+        {% empty %}
+            <p>Il n'existe pas encore de conversation.</p>
+        {% endfor %}
+    </div>
+
+
+</div>
+
+{% endblock %}

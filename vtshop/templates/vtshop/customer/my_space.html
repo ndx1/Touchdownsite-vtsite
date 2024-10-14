@@ -1,0 +1,42 @@
+<!-- My_space page, "Mon espace". -->
+
+{% extends 'vtshop/base.html' %}
+
+{% block title %}Mon espace{% endblock title %}
+
+{% block content %}
+
+{% load myfilters %}
+
+<div class="container-sm my-3 min-vh-100">
+
+    <div class="my-3 d-sm-flex justify-content-between align-items-center">
+        <div class="fs-5 pr-3">Mon conseiller : {{ related_employee.first_name }}</div>
+        <form action="{% url 'vtshop:messages-last' conversation.pk 3 %}" method="get">
+            <button type="submit" class="btn btn-info">Contacter mon conseiller</button>
+        </form>
+    </div>
+
+    <h1 class="fs-2 my-3">Mes commandes</h1>
+    <!-- Cart item list -->
+    <div class="list-group my-3">
+        
+        {% for order in order_list %}
+            <a 
+                class="list-group-item list-group-item-action"
+                href="{% url 'vtshop:order-detail' order.slug %}"
+                >
+                <div class="row">
+                    <div class="col">Ref. {{ order.ref_number }}</div>
+                    <div class="col">Montant HT: {{ order.total_price }}</div>
+                    <div class="col">Statut : {{ order.status }}</div>
+                    <div class="col">Datée du {{ order.date_created|date:"D d M Y" }}</div>
+                </div>
+            </a>
+        {% empty %}
+            Pas de commande.
+        {% endfor %}
+            
+    </div>
+</div>
+{% endblock content %}

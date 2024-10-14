@@ -1,0 +1,105 @@
+<!-- Our product detail view -->
+
+{% extends 'vtshop/base.html' %}
+
+{% block title %}Fiche produit{% endblock title %}
+
+{% block content %}
+
+{% load static %}
+{% load myfilters %}
+
+<main class="">
+<div class="container min-vh-100 pt-5">
+    <!-- <div class="row gy-5"> -->
+        <div class="row">
+            <div class="col fs-1 my-3">{{ product.name }}</div>
+        </div>
+        <!-- Product update link, for employees. -->
+        {% if user.role == "EMPLOYEE" %}
+            <a 
+                href="{% url 'vtshop:product-update' product.slug %}"
+                class="mx-1 link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                >Modifier le produit
+            </a>
+        {% endif %}
+
+
+        <div class="row py-3 gx-5 bg-body-tertiary">
+            <div class="col-sm-8 d-flex flex-column justify-content-center">
+                        <!-- Image -->
+                        {% if product.image %}
+                        <img 
+                            src="{{ product.image.url }}" 
+                            class="img-fluid object-fit-fill border rounded"
+                            width="auto"
+                            height="350"
+                        
+                            alt="{{ product.name }}"
+                            >
+                        {% else %}
+                        <!-- DEFAULT 'STATIC' IMG URL HERE -->
+                        <img 
+                            src="{% static 'vtshop/img/no-image-small.png' %}" 
+                            class="img-fluid object-fit-fill border rounded" 
+                            width="600"
+                            height="auto"
+                            alt="Pas d'image"
+                            >
+                        <p>Pas d'image pour ce produit.</p>
+                        {% endif %}
+            </div>
+            <div class="col-sm-4 d-flex flex-column justify-content-center">
+                <div class="pb-3">
+                    <div class="fs-1 fw-bold v-font-700">{{ product.price }} <span class="fs-3 fw-bold">€</span></div>
+                    <p>HT à l'unité</p>
+                </div>
+                <div class="pb-3">
+                    <p>(Commande de 1000 unités minimum)</p>
+                </div>
+                <div class="my-3">
+                    <!-- add to cart "button" -->
+                    <form action="{% url 'vtshop:product-add-to-cart' product.id %}" method="post">
+                        {% csrf_token %}
+                        <button 
+                            type="submit" 
+                            class="btn btn-primary btn-lg"
+                            {% if user.is_authenticated is not True or user.role != 'CUSTOMER' %}
+                                disabled
+                            {% endif %}
+                            >
+                            Ajouter au panier
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row py-3 gx-5">
+            <!-- Details -->
+            <div class="col-sm-8 fs-4">
+                <p>Description :</p> 
+                <p>{{ product.description }}</p>
+            </div>
+            <div class="col-sm-4">
+
+                <p>Catégorie <span class="fw-bold">{{ product.category }}</span></p>
+                <p>Ajouté le : {{ product.date_created|date:"D d M Y" }}</p>
+                
+                <!-- return to same category filtered products page we came from -->
+                {% if product.category is not None %}
+                    <a 
+                        class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                        href="{% url 'vtshop:products' product.category.slug %}">Retour à la liste de produits dans cette catégorie
+                    </a> 
+                {% else %}
+                    <a 
+                        class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                        href="{% url 'vtshop:products-all' %}">Retour à la liste de produits
+                    </a> 
+                {% endif %}
+            </div>
+        </div>
+    <!-- </div> -->
+</div>
+</main>
+{% endblock %}

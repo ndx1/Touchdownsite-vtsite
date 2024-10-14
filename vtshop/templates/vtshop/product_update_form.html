@@ -1,0 +1,35 @@
+<!-- Our form to update an existing product. -->
+
+{% extends 'vtshop/base.html' %}
+
+{% block title %}modiifier un produit{% endblock title %}
+
+{% block content %}
+
+{% load myfilters %}
+
+<div class="container-sm min-vh-100">
+
+    <div class="fs-3 mb-3">Modifier un produit</div>
+
+    <!-- Slug integrity error -->
+    {% if error_message %}
+    <div class="text-bg-warning p-3">
+        {{ error_message }}
+    </div>
+    {% endif %}
+
+    <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="mb-3">
+            {{ field.label_tag }} {{ field|addclass:'form-control' }}
+            {{ field.errors }}
+        </div>
+    {% endfor %}
+        <button type="submit" class="btn btn-primary">Modifier</button>
+    </form>
+
+</div>
+
+{% endblock %}

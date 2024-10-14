@@ -1,0 +1,412 @@
+[
+    {
+        "model": "vtshop.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$ilxwAXpXbaDBFQkRVzV6h5$50WrvGMHAPIeI1AtjJgfm6RGuuCRhl90LFRKQ1X6mUY=",
+            "last_login": "2023-05-18T08:16:29.667Z",
+            "is_superuser": false,
+            "first_name": "Hugo",
+            "last_name": "Boss",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2023-05-01T04:00:00Z",
+            "email": "hugo.boss@vt.com",
+            "role": "ADMINISTRATOR",
+            "company": null,
+            "reg_number": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "vtshop.user",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$JRJjKmxt4AFscnSHizxrTv$1raLANfNhsKOJMtKTegd3DR2Wq38Kp7/v4nA8gQmhXs=",
+            "last_login": "2023-05-18T09:14:13.583Z",
+            "is_superuser": false,
+            "first_name": "Jean",
+            "last_name": "Lancien",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2023-05-18T08:17:25.479Z",
+            "email": "jean.lancien@vt.com",
+            "role": "EMPLOYEE",
+            "company": "Victory Touchdown",
+            "reg_number": "4368",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "vtshop.user",
+        "pk": 4,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$Mqel7OWbCuvnhaC95ce7y5$r6P7J0JWALS17ig/CoFGlJ9jrVwDvfMnHkNx4G+jV3o=",
+            "last_login": "2023-05-18T09:22:24.046Z",
+            "is_superuser": false,
+            "first_name": "Julie",
+            "last_name": "Lanouvelle",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2023-05-18T08:18:04.071Z",
+            "email": "julie.lanouvelle@vt.com",
+            "role": "EMPLOYEE",
+            "company": "Victory Touchdown",
+            "reg_number": "4056",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "vtshop.user",
+        "pk": 5,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$QcVgwhB0omorKfbObBnVHx$jXidLLotrfuxZUHAlSrHeIWDtdM5zeBxY71j9z4R09k=",
+            "last_login": "2023-05-18T10:29:40.101Z",
+            "is_superuser": false,
+            "first_name": "Arnaud",
+            "last_name": "Dupond",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2023-05-18T08:23:07.817Z",
+            "email": "arnaud.dupond@la-boite.com",
+            "role": "CUSTOMER",
+            "company": null,
+            "reg_number": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "vtshop.user",
+        "pk": 6,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$KqNHYLAUM2AXXx34FbQ6Fv$yyXPsPAAKttHFN4WXTmfVAWBVzdg7ldVquxxEK15oKw=",
+            "last_login": "2023-05-18T10:04:23.898Z",
+            "is_superuser": false,
+            "first_name": "Claire",
+            "last_name": "Durand",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2023-05-18T08:24:06.244Z",
+            "email": "claire.durand@lautre-boite.com",
+            "role": "CUSTOMER",
+            "company": null,
+            "reg_number": null,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "vtshop.customeraccount",
+        "pk": 1,
+        "fields": {
+            "is_active": true,
+            "date_created": "2023-05-18T08:23:07.819Z",
+            "customer": 5,
+            "employee_reg": "4368"
+        }
+    },
+    {
+        "model": "vtshop.customeraccount",
+        "pk": 2,
+        "fields": {
+            "is_active": true,
+            "date_created": "2023-05-18T08:24:06.246Z",
+            "customer": 6,
+            "employee_reg": "4056"
+        }
+    },
+    {
+        "model": "vtshop.category",
+        "pk": 1,
+        "fields": {
+            "name": "Jeux",
+            "slug": "jeux"
+        }
+    },
+    {
+        "model": "vtshop.category",
+        "pk": 2,
+        "fields": {
+            "name": "Cartes de visite",
+            "slug": "cartes-de-visite"
+        }
+    },
+    {
+        "model": "vtshop.category",
+        "pk": 3,
+        "fields": {
+            "name": "Mugs",
+            "slug": "mugs"
+        }
+    },
+    {
+        "model": "vtshop.product",
+        "pk": 1,
+        "fields": {
+            "name": "Dés de jeu",
+            "slug": "des-de-jeu",
+            "date_created": "2023-05-18T09:16:49.694Z",
+            "image": "product_img/2023/05/18/dice-gc45983d42_640.jpg",
+            "description": "Dés de jeu type casino, lot de 4.\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At tellus at urna condimentum. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit amet. Auctor elit sed vulputate mi.",
+            "price": "0.20",
+            "category": 1
+        }
+    },
+    {
+        "model": "vtshop.product",
+        "pk": 4,
+        "fields": {
+            "name": "Dé de gamer",
+            "slug": "de-de-gamer",
+            "date_created": "2023-05-18T09:31:36.988Z",
+            "image": "product_img/2023/05/18/dice-g0af63eeaa_640_mgL7KcL.png",
+            "description": "Dé de jeu de plateau. Isocaédrique, 20 faces.\r\nLacus viverra vitae congue eu consequat. Ligula ullamcorper malesuada proin libero nunc consequat interdum. Ultrices tincidunt arcu non sodales neque sodales. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Elementum curabitur vitae nunc sed. Pellentesque nec nam aliquam sem et tortor consequat id porta. Montes nascetur ridiculus mus mauris. Laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget.",
+            "price": "0.05",
+            "category": 1
+        }
+    },
+    {
+        "model": "vtshop.product",
+        "pk": 5,
+        "fields": {
+            "name": "Cartes de visites satinées",
+            "slug": "cartes-de-visites-satinees",
+            "date_created": "2023-05-18T09:34:01.555Z",
+            "image": "product_img/2023/05/18/business-card-g2a82ee495_640.jpg",
+            "description": "Cartes de visite aspect satiné. Papier cartonné de qualité.\r\nPour la personnalisation merci de contacter votre conseiller via votre compte.\r\nVelit laoreet id donec ultrices tincidunt arcu. Ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Lorem sed risus ultricies tristique nulla aliquet enim tortor. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus. Morbi tincidunt ornare massa eget. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Dignissim sodales ut eu sem integer.",
+            "price": "0.01",
+            "category": 2
+        }
+    },
+    {
+        "model": "vtshop.product",
+        "pk": 6,
+        "fields": {
+            "name": "Mug aspect ancien",
+            "slug": "mug-aspect-ancien",
+            "date_created": "2023-05-18T09:39:44.897Z",
+            "image": "product_img/2023/05/18/cup-g3c1b51a12_640.png",
+            "description": "Mug d'aspect rustique et ancien, idéal pour autre chose que le café.\r\nPorttitor eget dolor morbi non arcu risus. Nulla porttitor massa id neque aliquam vestibulum morbi blandit. Nec feugiat nisl pretium fusce id. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Dolor purus non enim praesent elementum. Viverra suspendisse potenti nullam ac tortor vitae purus. Aliquet porttitor lacus luctus accumsan tortor posuere.",
+            "price": "2.35",
+            "category": 3
+        }
+    },
+    {
+        "model": "vtshop.product",
+        "pk": 7,
+        "fields": {
+            "name": "Gobelet",
+            "slug": "gobelet",
+            "date_created": "2023-05-18T09:42:32.861Z",
+            "image": "product_img/2023/05/18/tumbler-g15652ace9_640.png",
+            "description": "Gobelet simple en plastique. 4 coloris disponibles.\r\nPellentesque dignissim enim sit amet venenatis. Lacus laoreet non curabitur gravida arcu ac tortor dignissim. Tempor orci eu lobortis elementum nibh tellus molestie nunc. Sed egestas egestas fringilla phasellus faucibus scelerisque. Elementum curabitur vitae nunc sed velit dignissim sodales ut eu.",
+            "price": "0.08",
+            "category": 3
+        }
+    },
+    {
+        "model": "vtshop.cart",
+        "pk": 1,
+        "fields": {
+            "total_price": "10.00",
+            "customer_account": 1
+        }
+    },
+    {
+        "model": "vtshop.cart",
+        "pk": 2,
+        "fields": {
+            "total_price": "0.00",
+            "customer_account": 2
+        }
+    },
+    {
+        "model": "vtshop.order",
+        "pk": 1,
+        "fields": {
+            "status": "EX",
+            "total_price": "2820.00",
+            "vat_amount": "564.00",
+            "incl_vat_price": "3384.00",
+            "date_created": "2023-05-18T09:44:42.222Z",
+            "ref_number": "cvr1kncubc",
+            "slug": "cvr1kncubc",
+            "customer_account": 1
+        }
+    },
+    {
+        "model": "vtshop.order",
+        "pk": 2,
+        "fields": {
+            "status": "CT",
+            "total_price": "260.00",
+            "vat_amount": "52.00",
+            "incl_vat_price": "312.00",
+            "date_created": "2023-05-18T10:05:14.306Z",
+            "ref_number": "ki0tvvs3i4",
+            "slug": "ki0tvvs3i4",
+            "customer_account": 2
+        }
+    },
+    {
+        "model": "vtshop.comment",
+        "pk": 1,
+        "fields": {
+            "content": "La commande vient d'être créée.",
+            "date_created": "2023-05-18T09:44:42.226Z",
+            "order": 1
+        }
+    },
+    {
+        "model": "vtshop.comment",
+        "pk": 2,
+        "fields": {
+            "content": "La commande vient d'être créée.",
+            "date_created": "2023-05-18T10:05:14.310Z",
+            "order": 2
+        }
+    },
+    {
+        "model": "vtshop.comment",
+        "pk": 3,
+        "fields": {
+            "content": "La commande est en cours de traitement, la nous préparons.",
+            "date_created": "2023-05-18T10:10:41.300Z",
+            "order": 2
+        }
+    },
+    {
+        "model": "vtshop.comment",
+        "pk": 4,
+        "fields": {
+            "content": "La commande est en cours de traitement, la nous préparons.",
+            "date_created": "2023-05-18T10:10:41.318Z",
+            "order": 2
+        }
+    },
+    {
+        "model": "vtshop.comment",
+        "pk": 5,
+        "fields": {
+            "content": "Colis expédié. Comptez au moins deux jours ouvrés avant livraison.",
+            "date_created": "2023-05-18T10:12:44.967Z",
+            "order": 1
+        }
+    },
+    {
+        "model": "vtshop.comment",
+        "pk": 6,
+        "fields": {
+            "content": "Colis expédié. Comptez au moins deux jours ouvrés avant livraison.",
+            "date_created": "2023-05-18T10:12:44.979Z",
+            "order": 1
+        }
+    },
+    {
+        "model": "vtshop.lineitem",
+        "pk": 1,
+        "fields": {
+            "product": 6,
+            "quantity": 1200,
+            "price": "2820.00",
+            "cart": null,
+            "order": 1
+        }
+    },
+    {
+        "model": "vtshop.lineitem",
+        "pk": 2,
+        "fields": {
+            "product": 5,
+            "quantity": 1000,
+            "price": "10.00",
+            "cart": 1,
+            "order": null
+        }
+    },
+    {
+        "model": "vtshop.lineitem",
+        "pk": 3,
+        "fields": {
+            "product": 7,
+            "quantity": 2000,
+            "price": "160.00",
+            "cart": null,
+            "order": 2
+        }
+    },
+    {
+        "model": "vtshop.lineitem",
+        "pk": 4,
+        "fields": {
+            "product": 4,
+            "quantity": 2000,
+            "price": "100.00",
+            "cart": null,
+            "order": 2
+        }
+    },
+    {
+        "model": "vtshop.conversation",
+        "pk": 1,
+        "fields": {
+            "subject": "Échanges avec mon conseiller",
+            "date_created": "2023-05-18T08:23:07.836Z",
+            "date_modified": "2023-05-18T10:30:36.054Z",
+            "participants": [
+                5,
+                3
+            ]
+        }
+    },
+    {
+        "model": "vtshop.conversation",
+        "pk": 2,
+        "fields": {
+            "subject": "Échanges avec mon conseiller",
+            "date_created": "2023-05-18T08:24:06.257Z",
+            "date_modified": "2023-05-18T08:24:06.257Z",
+            "participants": [
+                6,
+                4
+            ]
+        }
+    },
+    {
+        "model": "vtshop.message",
+        "pk": 1,
+        "fields": {
+            "author": 5,
+            "date_created": "2023-05-18T09:46:14.220Z",
+            "content": "Bonjour,\r\nJe suis intéressé par les cartes de visite, j'aimerais donc les personnaliser.\r\nQue dois-je vous envoyer comme informations ?\r\nCdlt",
+            "is_read": false,
+            "conversation": 1
+        }
+    },
+    {
+        "model": "vtshop.message",
+        "pk": 2,
+        "fields": {
+            "author": 3,
+            "date_created": "2023-05-18T10:15:23.060Z",
+            "content": "Bonjour,\nLe format des cartes est de 85 x 55 mm.\nL'idéal est de nous envoyer un fichier PDF pour l'impression, avec des marges de 5mm au minimum.\nBien à vous",
+            "is_read": false,
+            "conversation": 1
+        }
+    },
+    {
+        "model": "vtshop.message",
+        "pk": 5,
+        "fields": {
+            "author": 5,
+            "date_created": "2023-05-18T10:30:36.053Z",
+            "content": "Bonjour,\r\nLibero nunc consequat interdum varius. Et netus et malesuada fames ac turpis egestas. Odio tempor orci dapibus ultrices in iaculis nunc sed augue. Libero nunc consequat interdum varius. Quisque id diam vel quam elementum pulvinar etiam. Malesuada proin libero nunc consequat interdum varius sit amet mattis. Nullam ac tortor vitae purus faucibus. Dignissim convallis aenean et tortor at risus viverra adipiscing. Vestibulum sed arcu non odio euismod lacinia at quis. Non enim praesent elementum facilisis leo vel.",
+            "is_read": false,
+            "conversation": 1
+        }
+    }
+    ]

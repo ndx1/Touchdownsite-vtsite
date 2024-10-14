@@ -1,0 +1,35 @@
+<!-- Our form to create a new category of products -->
+
+{% extends 'vtshop/base.html' %}
+
+{% block title %}Créer catégorie{% endblock title %}
+
+{% block content %}
+
+{% load myfilters %}
+
+<div class="container-sm min-vh-100">
+    
+    <div class="fs-3 mb-3">Créer une catégorie</div>
+
+    <!-- Slug intigrity error -->
+    {% if error_message %}
+    <div class="text-bg-warning p-3">
+        {{ error_message }}
+    </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="mb-3">
+                {{ field.label_tag }} {{ field|addclass:'form-control' }}
+                {{ field.errors }}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Créer</button>
+    </form>
+
+</div>
+
+{% endblock %}

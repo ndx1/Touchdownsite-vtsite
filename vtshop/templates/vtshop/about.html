@@ -1,0 +1,102 @@
+<!-- about page, "à propos". -->
+
+{% extends 'vtshop/base.html' %}
+
+{% load static %}
+
+{% block title %}À propos{% endblock title %}
+
+{% block content %}
+
+<main class="v-main-full d-flex flex-column">
+    <div class="container text-center">
+        
+    <div class="row align-items-center">
+        <div class="col-md-12 ">
+            <div class="flex-column">
+                <div class="">
+                    <img class="img-fluid" src="{% static 'vtshop/img/logo/logo_V_black.png' %}" alt="logo V">
+                </div>
+                <div> 
+                    <h1 class="display-6 text-center">Qui sommes-nous ?</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="flex-column">
+                <div class="">
+                    <img class="img-fluid" src="{% static 'vtshop/img/icon/tshirt.png' %}" alt="marketing">
+                </div>
+                <div> 
+                    <p class="text-justify"> 
+                        <h3>Notre Passion</h3>
+                        Nous sommes une entreprise spécialisée dans la vente de produit sportif. <br>
+                        Nos produits ont un seul but :<br>
+                        Améliorer la visibilité et promouvoir nos clients ainsi que le sport. <br>
+                        Notre objectif est de soutenir les clubs et les boutiques diverses<br>
+                        En fournissant des produits sportifs en gros<br>
+                        Ainsi qu'une gamme variée d'articles liés à ce sport.<br>
+                        Rejoignez-nous pour un avenir plus sport.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="flex-column">
+                <div class="">
+                    <img class="img-fluid" src="{% static 'vtshop/img/icon/lightning.png' %}" alt="lightning">
+                </div>
+                <div> 
+                    <p class="text-justify"> 
+                        <h3>Notre Engagement</h3>
+                        Nous sommes animés par la mission de propulser la visibilité de nos clients vers de nouveaux sommets. <br> 
+                        Notre engagement se manifeste par : <br> 
+                        Rapidité d'exécution pour répondre aux besoins de nos clients.<br>
+                        Un engagement inébranlable envers la satisfaction de nos clients.<br>
+                        Nous réinvestissons 10% de notre chiffre d'affaires annuel dans des projets visant à mettre en place des solutions durables pour l'avenir.<br>
+                        Dans l'ère actuelle, nous nous engageons à contribuer à la préservation de notre planète grâce à une démarche résolument écologique. <br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="flex-column">
+                <div class="">
+                    <img class="img-fluid" src="{% static 'vtshop/img/icon/award.png' %}" alt="award">
+                </div>
+                <div> 
+                    <p class="text-justify">
+                        <h3>Notre Équipe</h3>
+                        Aujourd'hui, notre équipe de passionnés professionnels est répartie dans toute la France.<br>
+                        Ce nombre ne cesse de croître, témoignant de notre engagement continu envers l'excellence.<br>
+                        L'année dernière, nous avons atteint un chiffre d'affaires consolidé de un million d'euros,<br>
+                        un jalon dont nous sommes à la fois fiers et reconnaissants d'avoir franchi. <br> 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="flex-column">
+                <div class="">
+                    <img class="img-fluid" src="{% static 'vtshop/img/icon/ecologic.png' %}" alt="ecologic">
+                </div>
+                <p class="text-justify">
+                    <h3>Notre vision</h3>
+                    Dans l'ère actuelle, nous nous engageons à contribuer à la préservation de notre planète grâce à une démarche résolument écologique. <br>
+                    Nous réinvestissons 10% de notre chiffre d'affaires annuel dans des projets visant à mettre en place des solutions durables pour l'avenir.<br>
+                    Cette transparence se traduit par un léger surcoût de nos services, mais nos clients partagent notre vision et choisissent de faire un geste pour la planète.<br>
+                    Rejoignez-nous dans cette démarche pour un avenir plus vert !
+                </p>
+                <div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>  
+</main>
+
+{% endblock content %}

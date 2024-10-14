@@ -1,0 +1,46 @@
+<!-- This is employee's related customer list page. -->
+
+{% extends 'vtshop/base.html' %}
+
+{% block title %}customers{% endblock title %}
+
+{% block content %}
+
+{% load myfilters %}
+
+    <div class="container-sm my-3 min-vh-100">
+
+    <h1 class="fs-2 my-3">Mes clients</h1>
+
+    <div class="list-group my-3">
+        {% for customer in customer_list %}
+            <div class="list-group-item">
+                <div class="row">
+                    <div class="col">{{ customer.first_name|title }} {{ customer.last_name|upper }}</div>
+                    <div class="col text-end">inscrit le {{ customer.date_joined|date:"D d M Y" }}</div>
+                </div>
+            </div>
+        {% empty %}
+            <p>Vous n'avez pas encore de client attribué.</p>
+        {% endfor %}
+    </div>
+    
+    <!-- To Intranet -->
+    <a 
+        href="{% url 'vtshop:intranet' %}"
+        class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+        >
+        Retour à Intranet
+    </a>
+
+</div>
+
+{% endblock %}
+
+<div class="list-group-item">
+    <div class="row">
+        <div class="col">{{ line_item.product }}</div> 
+        <div class="col">Quantité : {{ line_item.quantity }}</div>
+        <div class="col text-end">Prix : {{ line_item.price }} € HT</div>
+    </div>
+</div> 

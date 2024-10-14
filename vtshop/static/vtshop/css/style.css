@@ -1,0 +1,91 @@
+
+@font-face {
+    font-family: "Museo100-Regular";
+    src: url("../fonts/Museo100-Regular_0.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Museo300-Regular";
+    src: url("../fonts/Museo300-Regular_0.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "MuseoSans300-Regular";
+    src: url("../fonts/MuseoSans/MuseoSans_300.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Museo500-Regular";
+    src: url("../fonts/Museo500-Regular_0.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Museo700-Regular";
+    src: url("../fonts/Museo700-Regular_0.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Museo900-Regular";
+    src: url("../fonts/Museo900-Regular_0.otf") format("opentype");
+}
+
+.v-font-900 {
+    font-family: 'Museo900-Regular','Open Sans',Verdana,Tahoma,Arial,Helvetica,sans-serif;
+}
+.v-font-700 {
+    font-family: 'Museo700-Regular','Open Sans',Verdana,Tahoma,Arial,Helvetica,sans-serif;
+}
+.v-font-500 {
+    font-family: 'Museo500-Regular','Open Sans',Verdana,Tahoma,Arial,Helvetica,sans-serif;
+}
+.v-font-300 {
+    font-family: 'Museo300-Regular','Open Sans',Verdana,Tahoma,Arial,Helvetica,sans-serif;
+}
+.v-fontSans-300 {
+    font-family: 'MuseoSans300-Regular','Open Sans',Verdana,Tahoma,Arial,Helvetica,sans-serif;
+}
+.v-font-100 {
+    font-family: 'Museo100-Regular','Open Sans',Verdana,Tahoma,Arial,Helvetica,sans-serif;
+}
+
+
+/* ******************** */
+/* ***** main  ******** */
+/* ******************** */
+:root {
+    --bs-body-font-family: 'Museo300-Regular','Open Sans',Verdana,Tahoma,Arial,Helvetica,sans-serif;
+}
+
+.container-viz {
+    border: 2px solid black;
+}
+
+.v-main-full {
+    padding-top: 100px;
+    height: 1800px;
+    /* max-width: 1140px; */
+}
+
+.v-main-bgd-img {
+    /* background-image: url('../img/birds@2x.png'); */
+    background-image: url('../img/birds@2x_lower.png');
+    background-size: 2650px auto;
+    background-repeat: no-repeat;
+}
+
+.v-white-text {
+    color: white;
+}
+
+.pres-color {
+  /* background-color: #DAF7DC; */
+    background-color: #0B7786;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+
+
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="icon" href="{% static 'vtshop/img/icon/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'vtshop/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vtshop/css/style.css' %}">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <header>
+        {% include './partials/header.html' %}
+    </header>
+
+    
+    <!-- main -->
+    {% block content %}
+    {% endblock content%}
+
+
+    <!-- footer -->
+    {% include './partials/footer.html' %}
+
+    <script src="{% static 'vtshop/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vtshop/js/script.js' %}"></script>
+</body>
+</html>

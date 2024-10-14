@@ -1,0 +1,47 @@
+<!-- employee list page, "employés". -->
+
+{% extends 'vtshop/base.html' %}
+
+{% block title %}Employés{% endblock title %}
+
+{% block content %}
+
+{% load myfilters %}
+
+<div class="container-sm my-3 min-vh-100">
+
+    <h1 class="fs-2 my-3">Employé(e)s</h1>
+
+    
+    <div class="list-group my-3">
+        {% for employee in employee_list %}
+
+            <div class="list-group-item">
+                <div class="row">
+                    <div class="col">{{ employee.first_name|title }} {{ employee.last_name|upper }}</div>
+                    <div class="col">
+                        mat. {{ employee.reg_number }}
+                    </div>
+                    <div class="col text-end">
+                        Date d'entrée : {{ employee.date_joined|date:"D d M Y" }}
+                    </div>
+                    <div class="col text-end">
+                        <form action="{% url 'vtshop:employee_update' employee.pk %}" method="get">
+                            <button class="btn btn-secondary">Mot de passe</button>
+                        </form>
+                    </div>
+                </div> 
+            </div> 
+        {% empty %}
+            <a class="list-group-item list-group-item-action disabled">Pas encore d'employé(e).</a>
+        {% endfor %}
+    </div>
+    
+    <div>
+        <form action="{% url 'vtshop:employee_create' %}" method="get">
+            <button type="submit" class="btn btn-primary">Ajouter un(e) employé(e)</button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

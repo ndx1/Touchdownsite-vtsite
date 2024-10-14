@@ -1,0 +1,43 @@
+<!-- This is employee's intranet page. -->
+
+{% extends 'vtshop/base.html' %}
+
+{% block title %}intranet{% endblock title %}
+
+{% block content %}
+
+{% load myfilters %}
+
+<div class="container-sm my-3 min-vh-100">
+
+    <h1 class="fs-2 my-3">Intranet</h1>
+
+    <!-- To related customers. -->
+    <div class="my-3">
+        <form action="{% url 'vtshop:customers' %}" method="get">
+            <button type="submit" class="btn btn-lg btn-info">Mes clients</button>
+        </form>
+    </div>
+    
+    <!-- To conversations. -->
+    <div class="my-3">
+        <form action="{% url 'vtshop:conversations' %}" method="get">
+            <button type="submit" class="btn btn-lg btn-info">Conversations et messages</button>
+        </form>
+    </div>
+    
+    <!-- To categories and products. -->
+    <div class="my-3">
+        <form action="{% url 'vtshop:category-create' %}" method="get">
+            <button type="submit" class="btn btn-lg btn-primary">Ajouter une catégorie</button>
+        </form>
+    </div>
+    
+    <div class="my-3">
+        <form action="{% url 'vtshop:product-create' %}" method="get">
+            <button type="submit" class="btn btn-lg btn-primary">Ajouter un produit</button>
+        </form>
+    </div>
+
+</div>
+{% endblock %}

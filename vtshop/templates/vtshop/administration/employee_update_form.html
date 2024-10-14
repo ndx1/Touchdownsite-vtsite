@@ -1,0 +1,31 @@
+<!-- Employee update page, "Mot de passe employé". -->
+
+{% extends 'vtshop/base.html' %}
+
+{% block title %}Mot de passe employé{% endblock title %}
+
+{% block content %}
+
+{% load myfilters %}
+
+<div class="container-sm min-vh-100">
+
+    <div class="fs-3 mb-3">
+        Employé(e) :
+        {{ employee.first_name|title }} {{ employee.last_name|upper }}
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="mb-3">
+                {{ field.label_tag }} {{ field|addclass:'form-control' }}
+                {{ field.errors }}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Valider</button>
+    </form>
+
+</div>
+
+{% endblock content %}

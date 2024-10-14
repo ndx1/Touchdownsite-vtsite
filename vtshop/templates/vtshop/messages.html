@@ -1,0 +1,101 @@
+<!-- This is our message list view, aka detailed conversation. -->
+
+{% extends 'vtshop/base.html' %}
+
+{% block title %}Messages{% endblock title %}
+
+{% block content %}
+
+{% load myfilters %}
+
+<div class="container-sm my-3 min-vh-100">
+
+    <h1 class="fs-2 my-3">Conversation : {{ conversation }}</h1>
+
+    {% for message in message_list %}
+        {% if user != message.author %}
+            <div class="row">
+                <div class="col-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="">{{ message.author }} a écrit :</div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{ message.content }}</p>
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                            <div class="text-end">{{ message.date_created|date:"D d M Y" }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4"></div>
+            </div>
+
+        {% else %}
+        <div class="row">
+                <div class="col-4"></div>
+                <div class="col-8">
+                    <div class="card text-end">
+                        <div class="card-header">
+                            <div class="">Vous avez écrit :</div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{ message.content }}</p>
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                            <div class="text-end">{{ message.date_created|date:"D d M Y" }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    <!-- All messages ? -->
+    <div class="mt-5 mb-3 text-end">
+        {% if n_last is True %}
+            <a 
+                href="{% url 'vtshop:messages' conversation.pk %}"
+                class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                >
+                Voir tous les messages
+            </a>
+        {% else %}
+            <a 
+                href="{% url 'vtshop:messages-last' conversation.pk 5 %}"
+                class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                >
+                Voir seulement les derniers messages
+            </a>
+        {% endif %}
+    </div>
+    
+    <!-- New message -->
+    <form action="{% url 'vtshop:messages' conversation.pk %}" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="mb-3">
+                {{ field.label_tag }} {{ field|addclass:'form-control' }}
+                {{ field.errors }}
+            </div>
+        {% endfor %}
+        <div class="row">
+            <div class="col"><button type="submit" class="btn btn-primary">Envoyer</button></div>
+            <!-- Back to conversations -->
+            <div class="col text-end">
+                {% if user.role == "EMPLOYEE" %}
+                    <a 
+                        href="{% url 'vtshop:conversations' %}"
+                        class="mx-1 link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                    >
+                        Retour aux conversations
+                    </a>
+                {% endif %}
+            </div>
+            
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

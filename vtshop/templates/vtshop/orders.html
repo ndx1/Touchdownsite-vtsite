@@ -1,0 +1,24 @@
+<!-- order page, "commandes". -->
+
+{% extends 'vtshop/base.html' %}
+
+{% block title %}Commandes{% endblock title %}
+
+{% block content %}
+
+<div>Commandes</div>
+<div>
+    <ul>
+        {% for order in order_list %}
+            <li>
+                <a href="{% url 'vtshop:order-detail' order.slug %}">
+                    Ref. {{ order.ref_number }} | Montant HT: {{ order.total_price }} | Datée du {{ order.date_created|date:"D d M Y" }}
+                </a> 
+            </li>
+        {% empty %}
+            <li>Pas de commande.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock content %}

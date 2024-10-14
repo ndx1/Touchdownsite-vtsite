@@ -1,0 +1,50 @@
+<!-- home page, "Accueil". -->
+
+{% extends 'vtshop/base.html' %}
+
+{% load static %}
+
+{% block title %}Accueil{% endblock title %}
+
+{% block content %}
+
+<main class="v-main-full v-main-bgd-img">
+        <div class="container text-center v-white-text">
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                    <div class="p-5">
+                    <!-- <div class="d-inline-flex"> -->
+                        <div class="">
+                            <img class="img-fluid" src="{% static 'vtshop/img/vtbaseline.png' %}" alt="logo V">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    
+                </div>
+                <div class="p-5 fs-5 text-start pres-color v-fontSans-300">
+                    <div class="p-5">
+                        <h2>Notre Passion : Le Football Américain</h2>
+                            <p>Nous sommes une entreprise et une association de passionnés de football américain, dédiées à la promotion de ce sport en pleine expansion en France et dans le monde.<br>
+                            Notre objectif est de soutenir les clubs et les boutiques diverses en leur fournissant des produits sportifs en gros et une gamme variée d'articles liés à ce sport.</p>
+                        <br>
+                        <h3>Notre Engagement</h3>
+                            <p>Nous sommes animés par la mission de propulser la visibilité de nos clients vers de nouveaux sommets. Notre engagement se manifeste par :</p>
+                            <ul>
+                                <li>Rapidité d'exécution pour répondre aux besoins de nos clients.</li>
+                                <li>Un engagement inébranlable envers la satisfaction de nos clients.</li>
+                            </ul>
+                        <br>
+                        <h3>Notre Équipe</h3>
+                            <p>Aujourd'hui, notre équipe de passionnés professionnels est répartie dans toute la France. Ce nombre ne cesse de croître, témoignant de notre engagement continu envers l'excellence. L'année dernière, nous avons atteint un chiffre d'affaires consolidé de un million d'euros, un jalon dont nous sommes à la fois fiers et reconnaissants d'avoir franchi.</p>
+                        <br>   
+                        <h3>Engagement Écologique</h3>
+                            <p>Dans l'ère actuelle, nous nous engageons à contribuer à la préservation de notre planète grâce à une démarche résolument écologique. Nous réinvestissons 10% de notre chiffre d'affaires annuel dans des projets visant à mettre en place des solutions durables pour l'avenir. Cette transparence se traduit par un léger surcoût de nos services, mais nos clients partagent notre vision et choisissent de faire un geste pour la planète. Rejoignez-nous dans cette démarche pour un avenir plus vert !</p>
+                            <a href="/products" class="btn btn-primary">Découvrez nos produits</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+
+{% endblock content %}

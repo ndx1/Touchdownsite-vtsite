@@ -1,0 +1,77 @@
+<!-- Product list page filtered by category, "produits". -->
+
+{% extends 'vtshop/base.html' %}
+
+{% block title %}Produits{% endblock title %}
+
+{% block content %}
+
+{% load myfilters %}
+
+<div class="container-sm mt-4 min-vh-100">
+
+    <div class="d-flex justify-content-between align-items-center">
+        
+        <h1 class="fs-1">Produits</h1>
+        
+        <!-- Categories -->
+        <div class="dropdown">
+            <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Catégories
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'vtshop:categories' %}">Liste des catégories</a></li>
+                <li><a class="dropdown-item" href="{% url 'vtshop:products-all' %}">Tous les produits</a></li>
+                {% for category in category_list %}
+                <li><a class="dropdown-item" href="{% url 'vtshop:products' category.slug %}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+    
+    <!-- Edit links for employee -->
+    {% if user.role == "EMPLOYEE" %}
+    <div class="d-sm-flex justify-content-between align-items-center">
+            <a 
+                href="{% url 'vtshop:product-create' %}"
+                class="mx-1 link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                >Ajouter un produit
+            </a> 
+            <a 
+                href="{% url 'vtshop:category-create' %}"
+                class="mx-1 link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                >Créer une catégorie
+            </a>
+        </div>
+    {% endif %}
+    
+    <!-- Actual displayed category -->
+    <div class="fs-4 my-3">Catégorie :
+        {% if actual_category %}
+            {{ actual_category }}
+        {% else %}
+            toutes
+        {% endif %}
+    </div>
+
+    <!-- Product list -->
+    <div class="list-group">
+        {% for product in product_list %}
+            <a 
+                href="{% url 'vtshop:product-detail' product.slug %}" 
+                class="list-group-item list-group-item-action d-sm-flex justify-content-between align-items-center link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                >
+                <div class="fs-3 pr-3">{{ product.name }}</div>
+                <div class="pl-3"> - Prix pour 1000 unités : 
+                    <span class="fs-5 fw-bold">{{ product.price }} € HT</span>
+                </div>
+            </a>
+        {% empty %}
+            <a class="list-group-item list-group-item-action disabled">Pas de produit.</a>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock content %}
